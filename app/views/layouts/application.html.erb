@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tubonorte</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+            <%= csrf_meta_tags %>
+
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Tubo Norte SAC</a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li id="mninicio" class="active"><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
+                <li id="mncatalogo"><a href="/productos"><i class="fa fa-shopping-cart"></i> Catalogo</a></li>
+                <li><a href="#"><i class="fa fa-rss"></i> Noticias</a></li>
+                <li><a href="#"><i class="fa fa-briefcase"></i> Casos de exito</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i> Iniciar sesion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        <%= yield %>
+    </div>
+
+
+    <footer align="right">
+        <a href="#" class="btn btn-default"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="btn btn-default"><i class="fa fa-youtube"></i></a>
+    </footer>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #559F5C; ">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Iniciar sesion</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="ejemplo_email_2">Email</label>
+                            <input type="email" class="form-control" id="ejemplo_email_2" placeholder="Introduce tu email">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="ejemplo_password_2">Contraseña</label>
+                            <input type="password" class="form-control" id="ejemplo_password_2" placeholder="Contraseña">
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default">Ingresar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+/*******************************************************************
+verde:#559F5C
+
+
+
+*******************************************************************/
+
+
+body {
+  background: #559F5C; 
+  color: white;
+  margin: 0px;
+  padding: 0px;      
+}
+
+.content{
+ margin: 0px 50px 0px 50px;
+ padding: 50px 0px 50px 0px;   
+ min-height: 500px;
+}
+
+footer{
+    margin: 0px 50px 0px 50px;
+}
+
+.imagen-galeria{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+}
