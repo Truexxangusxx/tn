@@ -15,14 +15,14 @@
 
         </br>
         </br>
-        <form class="form">
-            <label for="consulta">Consulta</label>
-            <textarea id="consulta" class="form-control" rows="3" placeholder="Ingrese su consulta"></textarea>
-            <label for="correo">Correo</label>
-            <input id="correo" type="text" placeholder="Ingrese su correo" class="form-control">
+        <%= form_for :comentario, url: comentarios_path do |f| %>
+            <%= f.label :descripcion %>
+            <%= f.text_area :descripcion, class: "form-control", rows: 3, placeholder: "Ingrese su consulta" %>
+            <%= f.label :correo %>
+            <%= f.text_field :correo, class: "form-control", placeholder: "Ingrese su correo" %>
             </br>
-            <button type="button" class="btn btn-default"><i class="fa fa-envelope"></i> Enviar</button>
-        </form>
+            <button type="submit" class="btn btn-default"><i class="fa fa-envelope"></i> Enviar</button>
+        <% end %>
 
     </div>
     <div class="col-md-8" align="center">

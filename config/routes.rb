@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :productos
 
-
+ post 'comentarios' => 'comentarios#create'
 
 
 

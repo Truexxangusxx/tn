@@ -1,2 +1,0 @@
-class ComentarioController < ApplicationController
-end
