@@ -34,7 +34,11 @@
                 <li id="mncatalogo"><a href="/productos"><i class="fa fa-shopping-cart"></i> Catalogo</a></li>
                 <li><a href="#"><i class="fa fa-rss"></i> Noticias</a></li>
                 <li><a href="#"><i class="fa fa-briefcase"></i> Casos de exito</a></li>
+                <%if user_signed_in?%>
+                <li><%= link_to destroy_user_session_path, method: :delete do%><i class="fa fa-user"></i> Cerrar sesion<%end%></li>
+                <%else%>
                 <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i> Iniciar sesion</a></li>
+                <%end%>
             </ul>
         </div>
     </nav>
@@ -59,7 +63,7 @@
 </div>
 
 
-
+<% unless user_signed_in?%>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -68,27 +72,26 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Iniciar sesion</h4>
                 </div>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-inline", role: "form" }) do |f| %>
                 <div class="modal-body">
-                    <form class="form-inline" role="form">
                         <div class="form-group">
-                            <label class="sr-only" for="ejemplo_email_2">Email</label>
-                            <input type="email" class="form-control" id="ejemplo_email_2" placeholder="Introduce tu email">
+                            <%= f.label :email, class:"sr-only" %>
+                            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Introduce tu email" %>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="ejemplo_password_2">Contraseña</label>
-                            <input type="password" class="form-control" id="ejemplo_password_2" placeholder="Contraseña">
+                            <%= f.label :password, class:"sr-only" %>
+                            <%= f.password_field :password, autocomplete: "off",class:"form-control", placeholder:"Contraseña" %>
                         </div>
-                        
-                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default">Ingresar</button>
+                    <button type="submit" class="btn btn-default">Ingresar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
-
+<%end%>
 
 </body>
 
