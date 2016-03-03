@@ -5,8 +5,11 @@
     })
 </script>
 
-
 <h1>Listing productos</h1>
+
+<%if user_signed_in?%>
+    <%= link_to 'New Producto', new_producto_path %>
+<%end %>
 
 <table>
   <thead>
@@ -32,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Producto', new_producto_path %>
+

@@ -1,5 +1,6 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :new]
 
   # GET /productos
   # GET /productos.json
@@ -71,4 +72,5 @@ class ProductosController < ApplicationController
     def producto_params
       params.require(:producto).permit(:nombre, :imagen)
     end
+    
 end

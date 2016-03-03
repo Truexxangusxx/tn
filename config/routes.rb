@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'archivos/subir_archivos'
+
   devise_for :users
   get 'welcome/index'
   root :to => "welcome#index"
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
 
  post 'comentarios' => 'comentarios#create'
 
+get "archivos/subir_archivos"
+post "archivos/subir_archivos"
 
 
 end
