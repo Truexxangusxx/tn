@@ -1,9 +1,33 @@
 
 <script>
+    var i=1;
     $(document).ready(function(){
         $(".nav li").removeClass("active");
         $("#mninicio").addClass("active");
+
+        $('.btngaleria').click(function(e){
+            $('.btngaleria').removeClass("active");
+            $('.imagen-galeria').attr("src",'/assets/'+$(this).text()+'.jpg')
+            clearInterval(interval);
+        });
+
     })
+
+    var explode = function(){
+        i=i+1;
+        $('#contenedorimg').hide().fadeIn('slow');
+        $('.imagen-galeria').attr("src",'/assets/'+i+'.jpg');
+        for (var j=1; j <=5; j++){
+            if (i==j){
+                $("#btn"+j).addClass("active");
+            }
+            else{
+                $("#btn"+j).removeClass("active");
+            }
+        }
+        if(i==5){i=0;}
+    };
+    var interval=setInterval(explode, 3000);
 </script>
 
 
@@ -11,7 +35,7 @@
     <div class="col-md-4">
         <h1>Tubo Norte</h1>
         <p>Bienvenido al sitio oficial de la empresa TuboNorte, lider en distribucion de material de construccion, somos socios
-            estrategicos de cada uno de nuestros clientes</p>
+            estrategicos de cada uno de nuestros classientes</p>
 
         </br>
         </br>
@@ -26,16 +50,19 @@
 
     </div>
     <div class="col-md-8" align="center">
-        <div class="row">
-        <img src="/assets/tubo1.jpe" width="600" height="340" class="imagen-galeria">
+    <div class="col-md">
+        <br/>
+    </div>
+        <div class="row" id="contenedorimg">
+        <img src="/assets/1.jpg" width="600" height="340" class="imagen-galeria">
         </div>
         </br>
         <div class="row" align="center">
-            <a href="#" class="btn btn-default active"><i></i>1</a>
-            <a href="#" class="btn btn-default "><i></i>2</a>
-            <a href="#" class="btn btn-default "><i></i>3</a>
-            <a href="#" class="btn btn-default "><i></i>4</a>
-            <a href="#" class="btn btn-default "><i></i>5</a>
+            <a href="#" id="btn1" class="btngaleria btn btn-default active">1</a>
+            <a href="#" id="btn2" class="btngaleria btn btn-default ">2</a>
+            <a href="#" id="btn3" class="btngaleria btn btn-default ">3</a>
+            <a href="#" id="btn4" class="btngaleria btn btn-default ">4</a>
+            <a href="#" id="btn5" class="btngaleria btn btn-default ">5</a>
         </div>
     </div>
 </div>
